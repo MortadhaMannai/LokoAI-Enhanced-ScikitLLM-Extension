@@ -1,0 +1,489 @@
+{
+  "name": "scikit-llm_extension",
+  "id": "scikit-llm_extension",
+  "description": "",
+  "created_on": "24/05/2023, 09:49:08",
+  "last_modify": "29/05/2023, 16:24:44",
+  "graphs": {
+    "main": {
+      "nodes": [
+        {
+          "id": "25b4ee55-bb8a-43d1-bae3-9a950b8c7eed",
+          "position": {
+            "x": 565,
+            "y": 180
+          },
+          "type": "custom",
+          "dragHandle": "#nodeHandle",
+          "sourcePosition": "right",
+          "targetPosition": "left",
+          "width": 156,
+          "height": 104,
+          "selected": false,
+          "dragging": false,
+          "data": {
+            "name": "Trigger",
+            "events": null,
+            "description": "### Description\nThe TRIGGER component is used to start streams.\n\n### Output\nThe parameter Type can be set as a **String** or an **Object**. The parameter Value, on the other hand, defines the actual output of the component.",
+            "inputs": [],
+            "outputs": [
+              {
+                "id": "output",
+                "label": "output"
+              }
+            ],
+            "configured": true,
+            "options": {
+              "group": "Common",
+              "args": [
+                {
+                  "name": "comment",
+                  "type": "area",
+                  "label": "Node comment",
+                  "helper": "Use it to explain the usage of this node"
+                },
+                {
+                  "name": "alias",
+                  "type": "text",
+                  "label": "Name",
+                  "helper": "Use this name as an alias"
+                },
+                {
+                  "name": "debug",
+                  "type": "boolean",
+                  "label": "Debug to Console",
+                  "divider": true
+                },
+                {
+                  "name": "type",
+                  "type": "select",
+                  "description": "The type of data",
+                  "label": "Type",
+                  "validation": {
+                    "required": "Required field"
+                  },
+                  "fragment": null,
+                  "advanced": false,
+                  "options": [
+                    "String",
+                    "Object"
+                  ],
+                  "value": null
+                },
+                {
+                  "name": "value",
+                  "type": "dynamic",
+                  "dynamicType": {
+                    "String": "area",
+                    "Object": "code"
+                  },
+                  "parent": "type",
+                  "label": "Value",
+                  "validation": {
+                    "required": "Required field"
+                  }
+                }
+              ],
+              "click": "Send message",
+              "icon": "RiPlayFill",
+              "values": {
+                "comment": "",
+                "alias": "Multi-class",
+                "debug": false,
+                "type": "Object",
+                "value": "[\"I was absolutely blown away by the performances in 'Summer's End'. The acting was top-notch, and the plot had me gripped from start to finish. A truly captivating cinematic experience that I would highly recommend.\", \"The special effects in 'Star Battles: Nebula Conflict' were out of this world. I felt like I was actually in space. The storyline was incredibly engaging and left me wanting more. Excellent film.\"]"
+              }
+            },
+            "locked": null
+          },
+          "selectable": true,
+          "draggable": true,
+          "positionAbsolute": {
+            "x": 565,
+            "y": 180
+          },
+          "__class__": "Node"
+        },
+        {
+          "id": "aeb980c1-54d4-48fb-920a-322e4bd09f46",
+          "position": {
+            "x": 1038,
+            "y": 201
+          },
+          "type": "custom",
+          "dragHandle": "#nodeHandle",
+          "sourcePosition": "right",
+          "targetPosition": "left",
+          "width": 189,
+          "height": 56,
+          "selected": false,
+          "dragging": false,
+          "data": {
+            "name": "SK-LLM ZeroShot",
+            "events": null,
+            "description": "### SK-LLM ZeroShot",
+            "inputs": [
+              {
+                "id": "data",
+                "label": "data",
+                "service": "zero_shot",
+                "to": "output"
+              }
+            ],
+            "outputs": [
+              {
+                "id": "prediction",
+                "label": "prediction"
+              }
+            ],
+            "configured": true,
+            "options": {
+              "group": "Custom",
+              "args": [
+                {
+                  "name": "comment",
+                  "type": "area",
+                  "label": "Node comment",
+                  "helper": "Use it to explain the usage of this node"
+                },
+                {
+                  "name": "alias",
+                  "type": "text",
+                  "label": "Name",
+                  "helper": "Use this name as an alias"
+                },
+                {
+                  "name": "debug",
+                  "type": "boolean",
+                  "label": "Debug to Console",
+                  "divider": true
+                },
+                {
+                  "name": "model",
+                  "type": "text",
+                  "label": "OpenAI Model",
+                  "helper": "Choose one the OpenAI model to use",
+                  "group": "",
+                  "value": "gpt-3.5-turbo",
+                  "description": "",
+                  "validation": null
+                },
+                {
+                  "name": "labels",
+                  "type": "text",
+                  "label": "Labels",
+                  "helper": "Define the labels, comma separeted, for your classification",
+                  "group": "",
+                  "value": null,
+                  "description": "",
+                  "validation": null
+                },
+                {
+                  "name": "multilabel",
+                  "type": "boolean",
+                  "label": "Multilabel Classification",
+                  "helper": "",
+                  "group": "",
+                  "value": false,
+                  "description": "Toogle if you want to make multilabel prediction, otherwise multiclass classification will be performed",
+                  "validation": null
+                },
+                {
+                  "name": "max_labels",
+                  "type": "dynamic",
+                  "label": "Max number of labels",
+                  "helper": "",
+                  "group": "",
+                  "value": 3,
+                  "description": "Max number of labels to assign to an instance",
+                  "validation": null,
+                  "parent": "multilabel",
+                  "condition": "{parent}==true",
+                  "dynamicType": "number",
+                  "options": null,
+                  "fields": null,
+                  "url": null
+                }
+              ],
+              "click": null,
+              "icon": "RiFocus2Fill",
+              "values": {
+                "comment": "",
+                "alias": "",
+                "debug": true,
+                "model": "gpt-3.5-turbo",
+                "labels": "positive,negative,neutral",
+                "multilabel": false
+              }
+            },
+            "locked": null
+          },
+          "selectable": true,
+          "draggable": true,
+          "positionAbsolute": {
+            "x": 1038,
+            "y": 201
+          },
+          "__class__": "Node"
+        },
+        {
+          "id": "37771339-3f5b-4b6a-bb59-22f09160a6ec",
+          "position": {
+            "x": 601,
+            "y": 408
+          },
+          "type": "custom",
+          "dragHandle": "#nodeHandle",
+          "sourcePosition": "right",
+          "targetPosition": "left",
+          "width": 156,
+          "height": 104,
+          "selected": false,
+          "dragging": false,
+          "data": {
+            "name": "Trigger",
+            "events": null,
+            "description": "### Description\nThe TRIGGER component is used to start streams.\n\n### Output\nThe parameter Type can be set as a **String** or an **Object**. The parameter Value, on the other hand, defines the actual output of the component.",
+            "inputs": [],
+            "outputs": [
+              {
+                "id": "output",
+                "label": "output"
+              }
+            ],
+            "configured": true,
+            "options": {
+              "group": "Common",
+              "args": [
+                {
+                  "name": "comment",
+                  "type": "area",
+                  "label": "Node comment",
+                  "helper": "Use it to explain the usage of this node"
+                },
+                {
+                  "name": "alias",
+                  "type": "text",
+                  "label": "Name",
+                  "helper": "Use this name as an alias"
+                },
+                {
+                  "name": "debug",
+                  "type": "boolean",
+                  "label": "Debug to Console",
+                  "divider": true
+                },
+                {
+                  "name": "type",
+                  "type": "select",
+                  "description": "The type of data",
+                  "label": "Type",
+                  "validation": {
+                    "required": "Required field"
+                  },
+                  "fragment": null,
+                  "advanced": false,
+                  "options": [
+                    "String",
+                    "Object"
+                  ],
+                  "value": null
+                },
+                {
+                  "name": "value",
+                  "type": "dynamic",
+                  "dynamicType": {
+                    "String": "area",
+                    "Object": "code"
+                  },
+                  "parent": "type",
+                  "label": "Value",
+                  "validation": {
+                    "required": "Required field"
+                  }
+                }
+              ],
+              "click": "Send message",
+              "icon": "RiPlayFill",
+              "values": {
+                "comment": "",
+                "alias": "Multi-class",
+                "debug": false,
+                "type": "Object",
+                "value": "['The product was of excellent quality, and the packaging was also very good. Highly recommend!', 'The delivery was super fast, but the product did not match the information provided on the website.']\n"
+              }
+            },
+            "locked": null
+          },
+          "selectable": true,
+          "draggable": true,
+          "positionAbsolute": {
+            "x": 601,
+            "y": 408
+          },
+          "__class__": "Node"
+        },
+        {
+          "id": "c54d640e-2a24-44b0-8b82-ac46128d6ec3",
+          "position": {
+            "x": 1074,
+            "y": 429
+          },
+          "type": "custom",
+          "dragHandle": "#nodeHandle",
+          "sourcePosition": "right",
+          "targetPosition": "left",
+          "width": 189,
+          "height": 56,
+          "selected": false,
+          "dragging": false,
+          "data": {
+            "name": "SK-LLM ZeroShot",
+            "events": null,
+            "description": "### SK-LLM ZeroShot",
+            "inputs": [
+              {
+                "id": "data",
+                "label": "data",
+                "service": "zero_shot",
+                "to": "output"
+              }
+            ],
+            "outputs": [
+              {
+                "id": "prediction",
+                "label": "prediction"
+              }
+            ],
+            "configured": true,
+            "options": {
+              "group": "Custom",
+              "args": [
+                {
+                  "name": "comment",
+                  "type": "area",
+                  "label": "Node comment",
+                  "helper": "Use it to explain the usage of this node"
+                },
+                {
+                  "name": "alias",
+                  "type": "text",
+                  "label": "Name",
+                  "helper": "Use this name as an alias"
+                },
+                {
+                  "name": "debug",
+                  "type": "boolean",
+                  "label": "Debug to Console",
+                  "divider": true
+                },
+                {
+                  "name": "model",
+                  "type": "text",
+                  "label": "OpenAI Model",
+                  "helper": "Choose one the OpenAI model to use",
+                  "group": "",
+                  "value": "gpt-3.5-turbo",
+                  "description": "",
+                  "validation": null
+                },
+                {
+                  "name": "labels",
+                  "type": "text",
+                  "label": "Labels",
+                  "helper": "Define the labels, comma separeted, for your classification",
+                  "group": "",
+                  "value": null,
+                  "description": "",
+                  "validation": null
+                },
+                {
+                  "name": "multilabel",
+                  "type": "boolean",
+                  "label": "Multilabel Classification",
+                  "helper": "",
+                  "group": "",
+                  "value": false,
+                  "description": "Toogle if you want to make multilabel prediction, otherwise multiclass classification will be performed",
+                  "validation": null
+                },
+                {
+                  "name": "max_labels",
+                  "type": "dynamic",
+                  "label": "Max number of labels",
+                  "helper": "",
+                  "group": "",
+                  "value": 3,
+                  "description": "Max number of labels to assign to an instance",
+                  "validation": null,
+                  "parent": "multilabel",
+                  "condition": "{parent}==true",
+                  "dynamicType": "number",
+                  "options": null,
+                  "fields": null,
+                  "url": null
+                }
+              ],
+              "click": null,
+              "icon": "RiFocus2Fill",
+              "values": {
+                "comment": "",
+                "alias": "",
+                "debug": true,
+                "model": "gpt-3.5-turbo",
+                "labels": "Quality,Price,Delivery,Service,Product Variety,Customer Support,Packaging,User Experience,Return Policy,Product Information",
+                "multilabel": true,
+                "max_labels": "5"
+              }
+            },
+            "locked": null
+          },
+          "selectable": true,
+          "draggable": true,
+          "positionAbsolute": {
+            "x": 1074,
+            "y": 429
+          },
+          "__class__": "Node"
+        }
+      ],
+      "edges": [
+        {
+          "id": "reactflow__edge-25b4ee55-bb8a-43d1-bae3-9a950b8c7eedoutput-aeb980c1-54d4-48fb-920a-322e4bd09f46data",
+          "source": "25b4ee55-bb8a-43d1-bae3-9a950b8c7eed",
+          "sourceHandle": "output",
+          "target": "aeb980c1-54d4-48fb-920a-322e4bd09f46",
+          "targetHandle": "data",
+          "data": {
+            "startColor": "#D770AD",
+            "stopColor": "#888"
+          },
+          "selected": false,
+          "dragging": false,
+          "__class__": "Edge"
+        },
+        {
+          "id": "e9129fae-6fea-4b14-8a82-54601794cd08",
+          "source": "37771339-3f5b-4b6a-bb59-22f09160a6ec",
+          "sourceHandle": "output",
+          "target": "c54d640e-2a24-44b0-8b82-ac46128d6ec3",
+          "targetHandle": "data",
+          "data": {
+            "startColor": "#D770AD",
+            "stopColor": "#888"
+          },
+          "selected": false,
+          "dragging": false,
+          "__class__": "Edge"
+        }
+      ],
+      "__class__": "Graph"
+    }
+  },
+  "open": [
+    "main"
+  ],
+  "active": "main",
+  "version": "1.0.0",
+  "__class__": "Project"
+}

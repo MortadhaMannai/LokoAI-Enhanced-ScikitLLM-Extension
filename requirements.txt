@@ -1,0 +1,6 @@
+fastapi
+loguru
+loko-client
+loko-extensions
+scikit-llm
+uvicorn

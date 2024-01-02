@@ -1,0 +1,79 @@
+[
+ {
+  "name": "SK-LLM ZeroShot",
+  "description": "### SK-LLM ZeroShot",
+  "group": "Custom",
+  "icon": "RiFocus2Fill",
+  "click": null,
+  "events": null,
+  "configured": true,
+  "inputs": [
+   {
+    "id": "data",
+    "label": "data",
+    "service": "zero_shot",
+    "to": "prediction"
+   }
+  ],
+  "outputs": [
+   {
+    "id": "prediction",
+    "label": "prediction"
+   }
+  ],
+  "options": {
+   "values": {
+    "model": "gpt-3.5-turbo",
+    "max_labels": 3
+   },
+   "args": [
+    {
+     "name": "model",
+     "type": "text",
+     "label": "OpenAI Model",
+     "helper": "Choose one the OpenAI model to use",
+     "group": "",
+     "value": "gpt-3.5-turbo",
+     "description": "",
+     "validation": null
+    },
+    {
+     "name": "labels",
+     "type": "text",
+     "label": "Labels",
+     "helper": "Define the labels, comma separeted, for your classification",
+     "group": "",
+     "value": null,
+     "description": "",
+     "validation": null
+    },
+    {
+     "name": "multilabel",
+     "type": "boolean",
+     "label": "Multilabel Classification",
+     "helper": "",
+     "group": "",
+     "value": false,
+     "description": "Toogle if you want to make multilabel prediction, otherwise multiclass classification will be performed",
+     "validation": null
+    },
+    {
+     "name": "max_labels",
+     "type": "dynamic",
+     "label": "Max number of labels",
+     "helper": "",
+     "group": "",
+     "value": 3,
+     "description": "Max number of labels to assign to an instance",
+     "validation": null,
+     "parent": "multilabel",
+     "condition": "{parent}==true",
+     "dynamicType": "number",
+     "options": null,
+     "fields": null,
+     "url": null
+    }
+   ]
+  }
+ }
+]
