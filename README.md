@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # LokoAI-Enhanced: ScikitLLM Extension
 
 This project extends the functionality of LokoAI by integrating the specialized features and algorithms from the ScikitLLM library.
@@ -48,8 +47,3 @@ This project is licensed under the [Your License] License - see the [LICENSE](LI
 ## Acknowledgements
 
 Special thanks to the contributors and developers of ScikitLLM for their excellent library and the LokoAI team for enabling this extension.
-=======
-# LokoAI-Enhanced-ScikitLLM-Extension
-The "LokoAI-Enhanced: ScikitLLM Extension" project aims to bolster the capabilities of LokoAI by integrating the advanced functionalities of the ScikitLLM library. This extension intends to enhance LokoAI's feature set by incorporating the specialized tools and algorithms offered by ScikitLLM. By leveraging ScikitLLM's robust capabilities, this project seeks to elevate LokoAI's performance, expand its functionality, and offer users a more comprehensive and powerful AI framework for their tasks and applications.
->>>>>>> 5a928adc7809eef2671fbc5d381a6e443ef6ee1d
-
