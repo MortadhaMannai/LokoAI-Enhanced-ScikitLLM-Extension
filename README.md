@@ -1,6 +1,6 @@
 # LokoAI-Enhanced: ScikitLLM Extension
 
-# AUTHOR : MANAI MORTADHA 
+# AUTHOR : MANAI MORTADHA qqq
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 This project extends the functionality of LokoAI by integrating the specialized features and algorithms from the ScikitLLM library.
 
